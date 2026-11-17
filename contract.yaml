@@ -1,0 +1,43 @@
+openapi: 3.0.3
+info:
+  title: Addition API
+  version: 1.0.0
+paths:
+  /add:
+    get:
+      summary: Add two numbers
+      parameters:
+        - name: a
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 5
+        - name: b
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 10
+      responses:
+        "200":
+          description: Addition result
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - a
+                  - b
+                  - result
+                properties:
+                  a:
+                    type: integer
+                  b:
+                    type: integer
+                  result:
+                    type: integer
+              example:
+                a: 5
+                b: 10
+                result: 15
